@@ -1,6 +1,6 @@
 %global numjobs %{_smp_build_ncpus}
 
-Name:	 hardened-chromium-source
+Name:	 chromium-source
 Version: 130.0.6723.91
 Release: clean
 Summary: Cleaned chromium source.
@@ -11,12 +11,12 @@ BuildRequires: git
 BuildRequires: python3
 
 %description
-Vanilla, cleaned, source of chromium. Used by hardened-chromium.
+Vanilla chromium source, cleaned to reduce size and some proprietary bits.
 
 %build
 # obtain cleaning utilities
-git clone https://github.com/secureblue/hardened-chromium-source-cache.git
-cp hardened-chromium-source-cache/* .
+git clone https://github.com/secureblue/chromium-source-cache.git
+cp chromium-source-cache/* .
 
 # obtain depot tools for obtaining source
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
