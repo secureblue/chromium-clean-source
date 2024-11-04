@@ -1,6 +1,6 @@
 %global numjobs %{_smp_build_ncpus}
 
-Name:	 chromium-source
+Name:	 chromium-clean-source
 Version: 130.0.6723.91
 %{lua: print("Release: "..os.time().."\n")}
 Summary: Chromium's source tarball.
