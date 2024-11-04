@@ -3,7 +3,7 @@
 Name:	 chromium-source
 Version: 130.0.6723.91
 Release: clean
-Summary: Cleaned chromium source.
+Summary: Chromium's source tarball.
 Url:     http://www.chromium.org/Home
 License: BSD-3-Clause AND LGPL-2.1-or-later AND Apache-2.0 AND IJG AND MIT AND GPL-2.0-or-later AND ISC AND OpenSSL AND (MPL-1.1 OR GPL-2.0-only OR LGPL-2.0-only)
 
@@ -15,8 +15,8 @@ Vanilla chromium source, cleaned to reduce size and some proprietary bits.
 
 %build
 # obtain cleaning utilities
-git clone https://github.com/secureblue/chromium-source-cache.git
-cp chromium-source-cache/* .
+git clone https://github.com/secureblue/chromium-source-clean.git
+cp chromium-source-clean/* .
 
 # obtain depot tools for obtaining source
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
