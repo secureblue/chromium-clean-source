@@ -15,8 +15,8 @@ Vanilla chromium source, cleaned to reduce size and some proprietary bits.
 
 %build
 # obtain cleaning utilities
-git clone https://github.com/secureblue/chromium-source-clean.git
-cp chromium-source-clean/* .
+git clone https://github.com/secureblue/chromium-clean-source.git
+cp chromium-clean-source/* .
 
 # obtain depot tools for obtaining source
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
