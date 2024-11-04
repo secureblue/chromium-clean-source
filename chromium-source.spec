@@ -2,7 +2,7 @@
 
 Name:	 chromium-source
 Version: 130.0.6723.91
-Release: clean
+%{lua: print("Release: "..os.time().."\n")}
 Summary: Chromium's source tarball.
 Url:     http://www.chromium.org/Home
 License: BSD-3-Clause AND LGPL-2.1-or-later AND Apache-2.0 AND IJG AND MIT AND GPL-2.0-or-later AND ISC AND OpenSSL AND (MPL-1.1 OR GPL-2.0-only OR LGPL-2.0-only)
