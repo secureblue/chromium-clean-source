@@ -48,7 +48,7 @@ rm -rf ./media/test/data ./third_party/jdk/current ./third_party/liblouis/src/te
 # compress
 cd ..
 mv src/ chromium-%{version}/
-tar --exclude=\\.git -cf - chromium-%{version} | xz -9 -T 0 -f > chromium-%{version}-clean.tar.xz
+tar --exclude=\\.git -cf - chromium-%{version} | xz -9 -M 90% -T %{_smp_build_ncpus} -f > chromium-%{version}-clean.tar.xz
 mv chromium-%{version}-clean.tar.xz ./../
 
 %install
