@@ -1,6 +1,7 @@
 %global numjobs %{_smp_build_ncpus}
 
 Source0: chromium-version.txt
+%{lua: rpm.execute("cat", macros['_sourcedir'].."/chromium-version.txt") }
 
 Name:	 chromium-clean-source
 Version: %{lua: print(rpm.execute("cat", macros['_sourcedir'].."/chromium-version.txt").."\n") }
