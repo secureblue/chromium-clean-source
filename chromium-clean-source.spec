@@ -4,9 +4,7 @@ Source0: chromium-version.txt
 
 Name:	 chromium-clean-source
 %{lua:
-       f = io.open(macros['_sourcedir']..'/chromium-version.txt', 'r')
-       local content = f:read "*a"
-       rpm.execute("echo", content)
+       local content = io.open(macros['_sourcedir']..'/chromium-version.txt', 'r'):read "*a"
        print("Version: "..content.."\n")
 }
 Release: %autorelease
