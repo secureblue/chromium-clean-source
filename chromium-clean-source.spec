@@ -4,10 +4,11 @@ Source0: chromium-version.txt
 
 Name:	 chromium-clean-source
 %{lua:
-       local content = io.open(macros['_sourcedir']..'/chromium-version.txt', 'r'):read "*a"
-       print("Version: "..content.."\n")
+       local f = io.open(macros['_sourcedir']..'/chromium-version.txt', 'r')
+       local content = f:read "*a"
+       print("Version: "..content.."\nRelease: "..os.time().."\n")
+       f.close()
 }
-Release: %autorelease
 Summary: Chromium's source tarball.
 Url:     http://www.chromium.org/Home
 License: BSD-3-Clause AND LGPL-2.1-or-later AND Apache-2.0 AND IJG AND MIT AND GPL-2.0-or-later AND ISC AND OpenSSL AND (MPL-1.1 OR GPL-2.0-only OR LGPL-2.0-only)
