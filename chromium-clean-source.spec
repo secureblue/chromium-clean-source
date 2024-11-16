@@ -5,9 +5,9 @@ Source0: chromium-version.txt
 Name:	 chromium-clean-source
 %{lua:
        local f = io.open(macros['_sourcedir']..'/chromium-version.txt', 'r')
-       local content = f:read "*a"
-       print("Version: "..content.."\nRelease: "..os.time().."\n")
+       local content = f:read "*all"
        f.close()
+       print("Version: "..content.."\nRelease: "..os.time().."\n
 }
 Summary: Chromium's source tarball.
 Url:     http://www.chromium.org/Home
