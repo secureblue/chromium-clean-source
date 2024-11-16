@@ -1,8 +1,10 @@
 %global numjobs %{_smp_build_ncpus}
 
+Source0: chromium-version.txt
+
 Name:	 chromium-clean-source
-Version: 131.0.6778.69
-%{lua: print("Release: "..os.time().."\n")}
+Version: %{lua: print(os.execute("cat %{SOURCE0}").."\n")}
+Release: %autorelease
 Summary: Chromium's source tarball.
 Url:     http://www.chromium.org/Home
 License: BSD-3-Clause AND LGPL-2.1-or-later AND Apache-2.0 AND IJG AND MIT AND GPL-2.0-or-later AND ISC AND OpenSSL AND (MPL-1.1 OR GPL-2.0-only OR LGPL-2.0-only)
