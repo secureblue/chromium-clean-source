@@ -4,9 +4,10 @@ Source0: chromium-version.txt
 
 Name:	 chromium-clean-source
 %{lua:
-       f = rpm.open(macros['_sourcedir']..'/chromium-version.txt', 'r')
-       rpm.execute("echo", f:read())
-       print("Version: "..f:read().."\n")
+       f = io.open(macros['_sourcedir']..'/chromium-version.txt', 'r')
+       local content = f:read "*a"
+       rpm.execute("echo", content)
+       print("Version: "..content.."\n")
 }
 Release: %autorelease
 Summary: Chromium's source tarball.
