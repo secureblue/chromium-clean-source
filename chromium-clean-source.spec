@@ -6,7 +6,7 @@ Name:	 chromium-clean-source
 %{lua:
        f = rpm.open(macros['_sourcedir']..'/chromium-version.txt', 'r')
        rpm.execute("echo", f:read())
-       print("Version: "..rpm.execute("cat", macros['_sourcedir'].."/chromium-version.txt").."\n")
+       print("Version: "..f:read().."\n")
 }
 Release: %autorelease
 Summary: Chromium's source tarball.
