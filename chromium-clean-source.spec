@@ -3,7 +3,7 @@
 Source0: chromium-version.txt
 
 Name:	 chromium-clean-source
-Version: %{lua: print(os.execute("cat %{SOURCE0}").."\n")}
+Version: %{lua: print(rpm.execute("cat, macros['_sourcedir'].."/chromium-version.txt").."\n") }
 Release: %autorelease
 Summary: Chromium's source tarball.
 Url:     http://www.chromium.org/Home
