@@ -2,7 +2,7 @@
 
 Source0: chromium-version.txt
 
-Name:	 chromium-clean-source
+Name:	 trivalent-chromium-clean-source
 %{lua:
        local f = io.open(macros['_sourcedir']..'/chromium-version.txt', 'r')
        local content = f:read "*all"
@@ -20,8 +20,8 @@ Vanilla chromium source, cleaned to reduce size and some proprietary bits.
 
 %build
 # obtain cleaning utilities
-git clone https://github.com/secureblue/chromium-clean-source.git
-cp chromium-clean-source/* .
+git clone https://github.com/secureblue/trivalent-chromium-clean-source.git
+cp trivalent-chromium-clean-source/* .
 
 # obtain depot tools for obtaining source
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
