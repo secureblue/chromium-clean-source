@@ -6,7 +6,11 @@ Name:	 trivalent-chromium-clean-source
 %{lua:
        local f = io.open(macros['_sourcedir']..'/chromium-version.txt', 'r')
        local content = f:read "*all"
-       print("Version: "..content.."\nRelease: "..os.time().."\n")
+       -- This will dynamically set the version based on chromium's latest stable release channel
+       print("Version: "..content.."\n")
+
+       -- This will automatically increment the release every ~32 minutes
+       print("Release: "..(os.time() // 2000).."\n")
 }
 Summary: Chromium's source tarball.
 Url:     http://www.chromium.org/Home
