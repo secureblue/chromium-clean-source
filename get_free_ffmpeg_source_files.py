@@ -18,19 +18,19 @@
 # CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
+ 
 import sys
 import re
-
+ 
 def append_sources (input_sources, output_sources):
-
+ 
   # Get the source files.
   source_files = re.findall(r"\"(.*?)\"", input_sources)
   output_sources += source_files
-
-
+ 
+ 
 def parse_sources(input_sources, output_sources, arch_not_arm):
-
+ 
   # Get the type of sources in one group and sources itself in the other one.
   blocks = re.findall(r"(ffmpeg[^\s]*).*?\[(.*?)]", input_sources, re.DOTALL)
   for block in blocks:
@@ -39,13 +39,13 @@ def parse_sources(input_sources, output_sources, arch_not_arm):
         append_sources (block[1], output_sources)
     else:
       append_sources (block[1], output_sources)
-
-
+ 
+ 
 def parse_ffmpeg_gni_file(gni_path, arch_not_arm):
-
+ 
   with open(gni_path, "r") as input_file:
     content = input_file.read().replace('\n', '')
-
+ 
   output_sources = []
   # Get all the sections.
   sections = re.findall(r"if (.*?})", content, re.DOTALL)
@@ -68,15 +68,15 @@ def parse_ffmpeg_gni_file(gni_path, arch_not_arm):
           else:
             parse_sources (block[1], output_sources, arch_not_arm)
             inserted = True
-
+ 
   if len(output_sources) == 0:
     sys.stderr.write("Something went wrong, no sources parsed!\n")
     sys.exit(1)
-
+ 
   print(' '.join(output_sources))
-
-
+ 
+ 
 if __name__ == "__main__":
-
+ 
   path = "%s/third_party/ffmpeg/ffmpeg_generated.gni" % sys.argv[1]
   parse_ffmpeg_gni_file (path, False if sys.argv[2] == "0" else True)
