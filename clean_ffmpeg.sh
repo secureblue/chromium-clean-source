@@ -225,17 +225,19 @@ header_files="	libavcodec/x86/inline_asm.h \
 		libavutil/tx_priv.h \
 		libavutil/version.h \
 		libavutil/sfc64.h \
+		libavutil/executor.h \
 		libswresample/swresample.h \
 		libswresample/version.h \
 		libswresample/version_major.h \
-		compat/va_copy.h \
-		compat/atomics/gcc/stdatomic.h "
+		compat/va_copy.h "
 
 manual_files=" libavcodec/aarch64/h264pred_neon.S \
 		libavcodec/aarch64/hpeldsp_neon.S \
 		libavcodec/aarch64/neon.S \
 		libavcodec/aarch64/vorbisdsp_neon.S \
 		libavcodec/aarch64/autorename_libavcodec_aarch64_vorbisdsp_neon.S \
+		libavcodec/aarch64/autorename_libavcodec_aarch64_vorbisdsp_init.c \
+		libavcodec/aarch64/autorename_libavcodec_aarch64_videodsp_init.c \
 		libavcodec/aarch64/vorbisdsp_init.c \
 		libavcodec/aarch64/vp8dsp_neon.S \
 		libavcodec/x86/hpeldsp.asm \
@@ -271,8 +273,11 @@ manual_files=" libavcodec/aarch64/h264pred_neon.S \
 		libavformat/version.c \
 		libavutil/aarch64/asm.S \
 		libavutil/aarch64/cpu.c \
+		libavutil/aarch64/cpu_sve.S \
 		libavutil/aarch64/float_dsp_init.c \
 		libavutil/aarch64/float_dsp_neon.S \
+		libavutil/aarch64/autorename_libavutil_aarch64_cpu.c \
+		libavutil/aarch64/autorename_libavutil_aarch64_float_dsp_init.c \
 		libavutil/aarch64/autorename_libavutil_aarch64_float_dsp_neon.S \
 		libavutil/aarch64/tx_float_neon.S \
 		libavutil/aarch64/timer.h \
@@ -288,6 +293,7 @@ manual_files=" libavcodec/aarch64/h264pred_neon.S \
 		libavutil/x86/float_dsp_init.c \
 		libavutil/x86/tx_float_init.c \
 		libavutil/aarch64/tx_float_init.c \
+		libavutil/executor.c \
 		libavutil/x86/x86inc.asm \
 		libavutil/x86/x86util.asm "
 
